@@ -190,7 +190,7 @@ blockquote {
   line-height: 1.4;
 }
 
-.md-alert > p:first-child {
+.md-alert > p:first-child:not(:only-child) {
   display: none;
 }
 
