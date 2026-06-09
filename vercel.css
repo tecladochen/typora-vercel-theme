@@ -484,6 +484,7 @@ thead::after {
 .md-fences {
   padding-top: 34px;
   padding-left: 10px;
+  padding-bottom: 10px;
   background-color: var(--v-background);
   border-radius: 7px;
 }
@@ -615,3 +616,4 @@ thead::after {
 #typora-source .CodeMirror-lines {
   font-family: "GeistMono", "LXGWWenKaiMono";
 }
+
