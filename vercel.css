@@ -539,6 +539,10 @@ thead::after {
   background: var(--v-gray-400);
 }
 
+#write .md-mathblock-panel .CodeMirror {
+  color: var(--v-gray-1000);
+}
+
 .cm-s-inner .CodeMirror-selected {
   border-radius: 2px;
   background-color: #404859 !important;
