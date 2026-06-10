@@ -167,7 +167,7 @@ blockquote {
   color: var(--v-gray-900);
 }
 
-#write blockquote::before {
+#write blockquote:not(.md-alert)::before {
   position: absolute;
   top: 50%;
 
@@ -190,7 +190,18 @@ blockquote {
   line-height: 1.4;
 }
 
-.md-alert > p:first-child:not(:only-child) {
+/* Hide Typora's built-in alert title; theme uses ::before icons */
+.md-alert .md-alert-text {
+  display: none;
+}
+
+/* Legacy Typora: separate title paragraph (with blank line after marker) */
+.md-alert > p:first-child:not(:only-child):not(:has(.md-alert-text)) {
+  display: none;
+}
+
+/* New Typora: hide title-only first paragraph when content is in a later paragraph */
+.md-alert > p:first-child:not(:only-child):has(.md-alert-text):has(~ p:not(:empty)) {
   display: none;
 }
 
@@ -209,16 +220,17 @@ blockquote {
   color: var(--v-purple-900);
 }
 
-.md-alert.md-alert-important::before {
+#write .md-alert.md-alert-important::before {
   position: absolute;
   top: 50%;
+  left: 15px;
   transform: translateY(-55%);
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "\e643";
+  content: "\e631";
 }
 
 .md-alert.md-alert-caution {
@@ -227,16 +239,17 @@ blockquote {
   color: var(--v-red-900);
 }
 
-.md-alert.md-alert-caution::before {
+#write .md-alert.md-alert-caution::before {
   position: absolute;
   top: 50%;
+  left: 15px;
   transform: translateY(-50%);
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "\e62c";
+  content: "\e605";
 }
 
 .md-alert.md-alert-warning {
@@ -245,16 +258,17 @@ blockquote {
   color: var(--v-amber-900);
 }
 
-.md-alert.md-alert-warning::before {
+#write .md-alert.md-alert-warning::before {
   position: absolute;
   top: 50%;
+  left: 15px;
   transform: translateY(-60%);
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "\e612";
+  content: "\e682";
 }
 
 .md-alert.md-alert-tip {
@@ -263,9 +277,10 @@ blockquote {
   color: var(--v-green-900);
 }
 
-.md-alert.md-alert-tip::before {
+#write .md-alert.md-alert-tip::before {
   position: absolute;
   top: 50%;
+  left: 15px;
   transform: translateY(-50%);
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -281,16 +296,17 @@ blockquote {
   color: var(--v-blue-900);
 }
 
-.md-alert.md-alert-note::before {
+#write .md-alert.md-alert-note::before {
   position: absolute;
   top: 50%;
+  left: 15px;
   transform: translateY(-50%);
   font-family: "iconfont" !important;
   font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "\e63c";
+  content: "\e632";
 }
 
 /* COMMENT */
