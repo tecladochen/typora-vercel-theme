@@ -210,6 +210,24 @@ blockquote {
   padding: 0px;
 }
 
+/* No body yet: avoid icon-only empty box after deleting content */
+.md-alert:not(:has(> p:nth-child(2)))::before {
+  display: none;
+}
+
+.md-alert:not(:has(> p:nth-child(2))) {
+  border-color: transparent;
+  padding: 0;
+}
+
+.md-alert:not(:has(> p:nth-child(2))) > p {
+  margin-left: 0;
+}
+
+.md-alert:not(:has(> p:nth-child(2))) .md-alert-text {
+  display: inline;
+}
+
 .md-alert[mdtype="blockquote"] {
   padding: 12px;
 }
